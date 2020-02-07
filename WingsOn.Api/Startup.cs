@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using WingsOn.Api.SwaggerHelpers;
 
 namespace WingsOn.Api
 {
@@ -59,6 +60,8 @@ namespace WingsOn.Api
                         Title = "WingsOn API",
                         Version = "v1"
                     });
+
+                c.DocumentFilter<LowercaseDocumentFilter>();
 
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
