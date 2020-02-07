@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace WingsOn.Api
 {
+#pragma warning disable CA1052
     public class Program
     {
         public static void Main(string[] args)
@@ -23,4 +24,5 @@ namespace WingsOn.Api
                     webBuilder.UseStartup<Startup>();
                 });
     }
+#pragma warning restore
 }

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using WingsOn.Api.Models.Enums;
 
-namespace WingsOn.Api.Resources
+namespace WingsOn.Api.Models.Resources
 {
     public class PersonResource
     {

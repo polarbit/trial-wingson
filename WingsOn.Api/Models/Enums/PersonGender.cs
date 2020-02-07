@@ -1,4 +1,4 @@
-﻿namespace WingsOn.Api.Resources
+﻿namespace WingsOn.Api.Models.Enums
 {
     public enum PersonGender
     {
