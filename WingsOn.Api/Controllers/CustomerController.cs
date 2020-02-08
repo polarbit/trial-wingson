@@ -12,7 +12,7 @@ namespace WingsOn.Api.Controllers
     [Produces("application/json")]
     [Route("[controller]")]
     [ApiController]
-    public class PeopleController : ControllerBase
+    public class CustomerController : ControllerBase
     {
         /// <summary>
         /// Returns a specific Person by id.
@@ -40,11 +40,11 @@ namespace WingsOn.Api.Controllers
         }
 
         /// <summary>
-        /// Updates the email address of the person with given id.
+        /// Updates the email address of the customer by id.
         /// </summary>
         /// <remarks>
         /// **Warning:**\
-        /// If the person is a passenger of an already booked flight; the email address in the  airline system will not be updated.\
+        /// If the person is a customer of an already booked flight; the email address in the  airline system will not be updated.\
         /// Only the email adress in our own bookings database will be updated.
         /// </remarks>
         /// <param name="id"></param>
