@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using WingsOn.Domain;
+using WingsOn.Domain.BaseObjects;
+using WingsOn.Domain.Entities;
 
 namespace WingsOn.Dal
 {
-    public class RepositoryBase<T> : IRepository<T> where T : DomainObject
+    public class RepositoryBase<T> : IRepository<T> where T : DomainEntity
     {
         protected RepositoryBase()
         {

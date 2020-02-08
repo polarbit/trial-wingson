@@ -5,10 +5,10 @@ using WingsOn.Domain.Entities;
 
 namespace WingsOn.Domain.Repositories
 {
-    public interface IBookingRepository
+    public interface ICustomerRepository
     {
-        Booking GetById(int id);
+        Customer GetById(int id);
 
-        void Save(Booking booking);
+        void Save(Customer person);
     }
 }

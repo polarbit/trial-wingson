@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WingsOn.Domain.Entities;
 
 namespace WingsOn.Domain.Repositories
 {
-    public interface IPersonRepository
+    public interface IAirportRepository
     {
-        Person GetById(int id);
+        Airport GetById(int id);
     }
 }
