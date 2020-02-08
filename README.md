@@ -1,7 +1,7 @@
 # WingsOn Trial Project
 
 ### Important Notes
-* DAL layer is just a fake implementation. If I find time; I will replace it at least with EF Core+ SQLLite pair.
+* DAL layer is just a fake implementation. (If I find time; I may replace it with at least EF Core+ SQLLite pair.)
 
 ### Authentication
 
@@ -16,6 +16,7 @@
 - [ ] Validation 
 - [ ] Logging
 - [ ] Improve authentication with roles/scopes
+- [ ] Resolve all build warnings.
 - [ ] Extra: Set up Azure DevOps CI/CD
 - [ ] Extra: Deploy to Azure Websites
 - [ ] Extra: Show build status in GitHub
@@ -23,3 +24,5 @@
 - [ ] Extra: Show code coverage in CI/CD
 - [ ] Extra: Add SQLLite persistency with Ef Core
 - [ ] Extra: Separate sample data project (Initial Dal project)
+- [ ] Extra: Create a client library project and publish as nuget package.
+- [ ] Extra: SSO: Either add IdentityServer or custom trivial auth server project with login page.
