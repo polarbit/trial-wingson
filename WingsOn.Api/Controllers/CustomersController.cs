@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WingsOn.Api.Application.Commands.UpdateCustomerEmail;
 using WingsOn.Api.Application.Dtos.Enums;
 using WingsOn.Api.Application.Dtos.Resources;
 using WingsOn.Api.Application.Queries.GetAllCustomers;
@@ -70,9 +71,11 @@ namespace WingsOn.Api.Controllers
         /// <response code="401">Unauthorized request.</response>
         /// <response code="404">There is no customer with given id.</response>
         [HttpPost("{id}/email")]
-        public async Task<IActionResult> UpdateCustomerEmail(int id, string email)
+        public async Task<IActionResult> UpdateCustomerEmail(int id, [FromForm]string email)
         {
-            return await Task.FromResult(Ok());
+            await _mediator.Send(new UpdateCustomerEmailCommand(id, email));
+
+            return Ok();
         }
     }
 }

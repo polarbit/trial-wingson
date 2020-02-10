@@ -35,12 +35,9 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\WingsOn.Application\WingsOn.Application.csproj" />
     <ProjectReference Include="..\WingsOn.Dal\WingsOn.Dal.csproj" />
     <ProjectReference Include="..\WingsOn.Domain\WingsOn.Domain.csproj" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="Application\Commands\" />
   </ItemGroup>
 
 

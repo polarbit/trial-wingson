@@ -14,7 +14,13 @@
 - [ ] Extra: Show build status in GitHub
 - [ ] Extra: Show test results in CI/CD
 - [ ] Extra: Show code coverage in CI/CD
+- [ ] Extra: Abstract away MediatR library; introduce custom command/query dispatchers.
 - [ ] Extra: Add SQLLite persistency with Ef Core 
+
+### To Do - Before Production 
+- [ ] Restrict Cors hosts, if required.
+- [ ] Integrate with IdentityServer; get secretkey from environment variable.
+- [ ] Setup monitoring and healtcheck. (E.g. RunScope, PRTG, NewRelics, Graylog/ELK alerts etc.)
 
 ### Authentication
 

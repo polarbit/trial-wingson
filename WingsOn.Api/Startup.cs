@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using WingsOn.Api.Application.BaseObjects;
 using WingsOn.Api.SwaggerHelpers;
 using WingsOn.Dal.Repositories;
 using WingsOn.Domain.Aggregates.CustomerAggregate;
@@ -33,11 +34,11 @@ namespace WingsOn.Api
 
             services.AddControllers();
 
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddMediatR(Assembly.GetExecutingAssembly(), typeof(ICommand).Assembly);
 
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
-            //services.AddScoped<ICustomerRepository>(sp => (ICustomerRepository) sp.GetService<CustomerRepository>());
+            services.AddSingleton<ICustomerRepository, CustomerRepository>();
 
+            /*
             services
                 .AddAuthentication(o =>
                 {
@@ -58,6 +59,7 @@ namespace WingsOn.Api
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:SecretKey"]))
                     };
                 });
+                */
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
@@ -78,7 +80,6 @@ namespace WingsOn.Api
             });
         }
 
-#pragma warning disable CA1822
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(
             IApplicationBuilder app,
@@ -108,17 +109,16 @@ namespace WingsOn.Api
                .AllowAnyMethod()
                .AllowAnyHeader());
 
-            app.UseAuthentication();
+            // app.UseAuthentication();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints
-                    .MapControllers()
-                    .RequireAuthorization();
+                    .MapControllers();
+                // .RequireAuthorization();
             });
         }
-#pragma warning restore
     }
 }

@@ -29,6 +29,11 @@ namespace WingsOn.Domain.Aggregates.CustomerAggregate
 
         public string Address { get; }
 
-        public string Email { get; }
+        public string Email { get; private set; }
+
+        public void UpdateEmail(string email)
+        {
+            Email = email;
+        }
     }
 }
