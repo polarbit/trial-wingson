@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WingsOn.Api.Models.Forms;
-using WingsOn.Api.Models.Resources;
+using WingsOn.Api.Application.Dtos.Forms;
+using WingsOn.Api.Application.Dtos.Resources;
 
 namespace WingsOn.Api.Controllers
 {

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Globalization;
-using WingsOn.Domain.Entities;
+using WingsOn.Domain.Aggregates.CustomerAggregate;
 using WingsOn.Domain.Enums;
 
 namespace WingsOn.Dal.Repositories
 {
-    public class CustomerRepository : RepositoryBase<Customer>
+    public class CustomerRepository : RepositoryBase<Customer>, ICustomerRepository
     {
         public CustomerRepository() 
         {
@@ -50,6 +50,11 @@ namespace WingsOn.Dal.Repositories
 		            name:  "Bonnie Rice"
                 )
             });
+        }
+
+        Customer ICustomerRepository.GetById(int id)
+        {
+            return Get(id);
         }
     }
 }

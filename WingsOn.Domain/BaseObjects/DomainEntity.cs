@@ -1,6 +1,6 @@
 ﻿namespace WingsOn.Domain.BaseObjects
 {
-    public class DomainEntity
+    public abstract class DomainEntity
     {
         protected DomainEntity(int id)
         {

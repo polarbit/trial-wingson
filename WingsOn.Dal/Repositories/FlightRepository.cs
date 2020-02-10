@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
-using WingsOn.Domain.Entities;
+using WingsOn.Domain.Aggregates.FlightAggregate;
 
 namespace WingsOn.Dal.Repositories
 {

@@ -2,7 +2,6 @@
 using System.Linq;
 using WingsOn.Domain;
 using WingsOn.Domain.BaseObjects;
-using WingsOn.Domain.Entities;
 
 namespace WingsOn.Dal
 {

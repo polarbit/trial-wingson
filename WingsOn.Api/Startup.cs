@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using WingsOn.Api.SwaggerHelpers;
+using WingsOn.Dal.Repositories;
+using WingsOn.Domain.Aggregates.CustomerAggregate;
 
 namespace WingsOn.Api
 {
@@ -29,6 +32,11 @@ namespace WingsOn.Api
             services.AddCors();
 
             services.AddControllers();
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            //services.AddScoped<ICustomerRepository>(sp => (ICustomerRepository) sp.GetService<CustomerRepository>());
 
             services
                 .AddAuthentication(o =>

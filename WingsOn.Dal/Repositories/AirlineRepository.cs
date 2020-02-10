@@ -1,5 +1,4 @@
-﻿using WingsOn.Domain.Entities;
-using WingsOn.Domain.Repositories;
+﻿using WingsOn.Domain.Aggregates.AirlineAggregate;
 
 namespace WingsOn.Dal.Repositories
 {
