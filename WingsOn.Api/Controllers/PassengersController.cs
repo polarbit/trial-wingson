@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WingsOn.Application.Dto.Enums;
-using WingsOn.Application.Dto.Resources;
+using WingsOn.Application.Bookings.Resources;
+using WingsOn.Application.Enums;
 
 namespace WingsOn.Api.Controllers
 {

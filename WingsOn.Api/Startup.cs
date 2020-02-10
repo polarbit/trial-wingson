@@ -14,9 +14,9 @@ using Microsoft.OpenApi.Models;
 using WingsOn.Api.SwaggerHelpers;
 using WingsOn.Application.BaseObjects;
 using WingsOn.Dal.Repositories;
-using WingsOn.Domain.Aggregates.AirlineAggregate;
-using WingsOn.Domain.Aggregates.AirportAggregate;
-using WingsOn.Domain.Aggregates.CustomerAggregate;
+using WingsOn.Domain.Airlines;
+using WingsOn.Domain.Airports;
+using WingsOn.Domain.Customers;
 
 namespace WingsOn.Api
 {

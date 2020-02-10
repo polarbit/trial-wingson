@@ -2,10 +2,10 @@
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WingsOn.Application.Commands.UpdateCustomerEmail;
-using WingsOn.Application.Dto.Resources;
-using WingsOn.Application.Queries.GetAllCustomers;
-using WingsOn.Application.Queries.GetCustomerById;
+using WingsOn.Application.Customers.Commands.UpdateCustomerEmail;
+using WingsOn.Application.Customers.Queries.GetAllCustomers;
+using WingsOn.Application.Customers.Queries.GetCustomerById;
+using WingsOn.Application.Customers.Resources;
 
 namespace WingsOn.Api.Controllers
 {

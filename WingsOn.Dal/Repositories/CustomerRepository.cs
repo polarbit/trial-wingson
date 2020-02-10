@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Globalization;
-using WingsOn.Domain.Aggregates.CustomerAggregate;
+using WingsOn.Domain.Customers;
 using WingsOn.Domain.Enums;
 
 namespace WingsOn.Dal.Repositories

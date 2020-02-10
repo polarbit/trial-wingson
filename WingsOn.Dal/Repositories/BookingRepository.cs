@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
-using WingsOn.Domain.Aggregates.BookingAggregate;
+using WingsOn.Domain.Bookings;
 using WingsOn.Domain.Enums;
 
 namespace WingsOn.Dal.Repositories
@@ -11,7 +11,8 @@ namespace WingsOn.Dal.Repositories
         public BookingRepository() 
         {
             CustomerRepository persons = new CustomerRepository();
-            FlightRepository flights = new FlightRepository();
+            AirportRepository airports = new AirportRepository();
+            AirlineRepository airlines = new AirlineRepository();
             CultureInfo cultureInfo = new CultureInfo("nl-NL");
 
             Repository.AddRange(new []
@@ -22,7 +23,17 @@ namespace WingsOn.Dal.Repositories
                     number: "WO-291470",
                     customerId: persons.GetAll().Single(p => p.Name == "Branden Johnston").Id,
                     dateBooking: DateTime.Parse("03/03/2006 14:30", cultureInfo),
-                    flightId: flights.GetAll().Single(f => f.Number == "BB768").Id,
+                    flight: new Flight
+                    (
+                        id:21,
+                        number: "BB768",
+                        arrivalAirportId:  airports.GetAll().Single(a => a.Code == "ANH").Id,
+                        arrivalDate:  DateTime.Parse("14/11/2006 21:00", cultureInfo),
+                        departureAirportId:  airports.GetAll().Single(a => a.Code == "OQO").Id,
+                        departureDate:  DateTime.Parse("15/11/2006 01:30", cultureInfo),
+                        carrierId:  airlines.GetAll().Single(a => a.Code == "BB").Id,
+                        price:  416.17m
+                    ),
                     passengers: new []
                     {
                         new Passenger 
@@ -42,7 +53,17 @@ namespace WingsOn.Dal.Repositories
                     number: "WO-151277",
                     customerId: persons.GetAll().Single(p => p.Name == "Debra Lang").Id,
                     dateBooking: DateTime.Parse("12/02/2000 12:55", cultureInfo),
-                    flightId: flights.GetAll().Single(f => f.Number == "PZ696").Id,
+                    flight: new Flight
+                    (
+                        id:31,
+                        number: "PZ956",
+                        arrivalAirportId:  airports.GetAll().Single(a => a.Code == "ANH").Id,
+                        arrivalDate:  DateTime.Parse("28/05/2008 20:10", cultureInfo),
+                        departureAirportId:  airports.GetAll().Single(a => a.Code == "OQO").Id,
+                        departureDate:  DateTime.Parse("29/05/2008 13:30", cultureInfo),
+                        carrierId:  airlines.GetAll().Single(a => a.Code == "PZ").Id,
+                        price:  1140.5m
+                    ),
                     passengers: new []
                     {
                         new Passenger 
@@ -80,7 +101,17 @@ namespace WingsOn.Dal.Repositories
                     number: "WO-694142",
                     customerId: persons.GetAll().Single(p => p.Name == "Kathy Morgan").Id,
                     dateBooking: DateTime.Parse("13/02/2000 16:37", cultureInfo),
-                    flightId: flights.GetAll().Single(f => f.Number == "PZ696").Id,
+                    flight: new Flight
+                    (
+                        id:81,
+                        number: "PZ696",
+                        departureAirportId: airports.GetAll().Single(a => a.Code == "GJE").Id,
+                        departureDate:  DateTime.Parse("20/02/2000 17:50", cultureInfo),
+                        arrivalAirportId:   airports.GetAll().Single(a => a.Code == "CZR").Id,
+                        arrivalDate:  DateTime.Parse("20/02/2000 19:00", cultureInfo),
+                        carrierId:  airlines.GetAll().Single(a => a.Code == "PZ").Id,
+                        price:  95.2m
+                    ),
                     passengers: new []
                     {
                         new Passenger
@@ -109,7 +140,17 @@ namespace WingsOn.Dal.Repositories
                     number: "WO-139716",
                     customerId: persons.GetAll().Single(p => p.Name == "Bonnie Rice").Id,
                     dateBooking: DateTime.Parse("03/12/2011 16:50", cultureInfo),
-                    flightId: flights.GetAll().Single(f => f.Number == "BB124").Id,
+                    flight: new Flight
+                    (
+                        id: 30,
+                        number: "BB124",
+                        departureAirportId :  airports.GetAll().Single(a => a.Code == "OQO").Id,
+                        departureDate: DateTime.Parse("12/02/2012 16:50", cultureInfo),
+                        arrivalAirportId:  airports.GetAll().Single(a => a.Code == "GJE").Id,
+                        arrivalDate: DateTime.Parse("13/02/2012 00:00", cultureInfo),
+                        carrierId: airlines.GetAll().Single(a => a.Code == "BB").Id,
+                        price: 196.1m
+                    ),
                     passengers: new []
                     {
                         new Passenger 

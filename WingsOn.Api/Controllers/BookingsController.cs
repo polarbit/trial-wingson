@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WingsOn.Application.Dto.Forms;
-using WingsOn.Application.Dto.Resources;
+using WingsOn.Application.Bookings.Forms;
+using WingsOn.Application.Bookings.Resources;
 
 namespace WingsOn.Api.Controllers
 {
@@ -46,7 +46,7 @@ namespace WingsOn.Api.Controllers
         /// <response code="401">Unauthorized request.</response>
         /// <response code="404">There is no flight with given id.</response>
         [HttpPost]
-        public async Task<IActionResult> AddBooking(int flightId, [FromBody]NewBookingForm newBookingForm)
+        public async Task<IActionResult> CreateBooking(int flightId, [FromBody]NewBookingForm newBookingForm)
         {
             return Ok();
         }

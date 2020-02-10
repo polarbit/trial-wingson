@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WingsOn.Application.Dto.Resources;
-using WingsOn.Application.Queries.GetAllAirlines;
+using WingsOn.Application.Airlines.Queries.GetAllAirlines;
+using WingsOn.Application.Airlines.Resources;
 
 namespace WingsOn.Api.Controllers
 {

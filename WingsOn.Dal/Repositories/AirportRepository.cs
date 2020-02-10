@@ -1,4 +1,4 @@
-﻿using WingsOn.Domain.Aggregates.AirportAggregate;
+﻿using WingsOn.Domain.Airports;
 
 namespace WingsOn.Dal.Repositories
 {
