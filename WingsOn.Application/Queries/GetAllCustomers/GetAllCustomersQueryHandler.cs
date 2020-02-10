@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using WingsOn.Api.Application.BaseObjects;
-using WingsOn.Api.Application.Dtos.Enums;
-using WingsOn.Api.Application.Dtos.Resources;
+using WingsOn.Application.BaseObjects;
+using WingsOn.Application.Dto.Enums;
+using WingsOn.Application.Dto.Resources;
 using WingsOn.Domain.Aggregates.CustomerAggregate;
 
-namespace WingsOn.Api.Application.Queries.GetAllCustomers
+namespace WingsOn.Application.Queries.GetAllCustomers
 {
     public class GetAllCustomersQueryHandler :
         IQueryHandler<GetAllCustomersQuery, IEnumerable<CustomerResource>>

@@ -1,7 +1,7 @@
 ﻿using System;
 using MediatR;
 
-namespace WingsOn.Api.Application.BaseObjects
+namespace WingsOn.Application.BaseObjects
 {
     public interface ICommand : IRequest
     {

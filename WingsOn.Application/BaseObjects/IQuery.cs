@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 
-namespace WingsOn.Api.Application.BaseObjects
+namespace WingsOn.Application.BaseObjects
 {
     public interface IQuery<out TResult> : IRequest<TResult>
     {

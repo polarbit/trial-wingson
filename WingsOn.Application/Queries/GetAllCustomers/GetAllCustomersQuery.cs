@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using WingsOn.Api.Application.BaseObjects;
-using WingsOn.Api.Application.Dtos.Resources;
+using WingsOn.Application.BaseObjects;
+using WingsOn.Application.Dto.Resources;
 
-namespace WingsOn.Api.Application.Queries.GetAllCustomers
+namespace WingsOn.Application.Queries.GetAllCustomers
 {
     public class GetAllCustomersQuery : IQuery<IEnumerable<CustomerResource>>
     {

@@ -1,4 +1,4 @@
-﻿namespace WingsOn.Api.Application.Dtos.Enums
+﻿namespace WingsOn.Application.Dto.Enums
 {
     public enum Gender
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using WingsOn.Api.Application.Dtos.Enums;
+using WingsOn.Application.Dto.Enums;
 
-namespace WingsOn.Api.Application.Dtos.Forms
+namespace WingsOn.Application.Dto.Forms
 {
     public class NewPassengerForm
     {

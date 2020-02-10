@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WingsOn.Api.Application.Dtos.Enums;
-using WingsOn.Api.Application.Dtos.Resources;
+using WingsOn.Application.Dto.Enums;
+using WingsOn.Application.Dto.Resources;
 
 namespace WingsOn.Api.Controllers
 {

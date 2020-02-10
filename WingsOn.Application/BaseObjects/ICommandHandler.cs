@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace WingsOn.Api.Application.BaseObjects
+namespace WingsOn.Application.BaseObjects
 {
     public interface ICommandHandler<in TCommand> :
         IRequestHandler<TCommand> where TCommand : ICommand

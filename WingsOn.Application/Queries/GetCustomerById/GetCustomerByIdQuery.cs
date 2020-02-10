@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using WingsOn.Api.Application.BaseObjects;
-using WingsOn.Api.Application.Dtos.Resources;
+﻿using WingsOn.Application.BaseObjects;
+using WingsOn.Application.Dto.Resources;
 
-namespace WingsOn.Api.Application.Queries.GetCustomerById
+namespace WingsOn.Application.Queries.GetCustomerById
 {
     public class GetCustomerByIdQuery : IQuery<CustomerResource>
     {

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using WingsOn.Api.Application.BaseObjects;
-using WingsOn.Api.Application.Dtos.Enums;
-using WingsOn.Api.Application.Dtos.Resources;
+using WingsOn.Application.BaseObjects;
+using WingsOn.Application.Dto.Enums;
+using WingsOn.Application.Dto.Resources;
 using WingsOn.Domain.Aggregates.CustomerAggregate;
 
-namespace WingsOn.Api.Application.Queries.GetCustomerById
+namespace WingsOn.Application.Queries.GetCustomerById
 {
     public class GetCustomerByIdQueryHandler :
         IQueryHandler<GetCustomerByIdQuery, CustomerResource>

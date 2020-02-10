@@ -11,8 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using WingsOn.Api.Application.BaseObjects;
 using WingsOn.Api.SwaggerHelpers;
+using WingsOn.Application.BaseObjects;
 using WingsOn.Dal.Repositories;
 using WingsOn.Domain.Aggregates.CustomerAggregate;
 

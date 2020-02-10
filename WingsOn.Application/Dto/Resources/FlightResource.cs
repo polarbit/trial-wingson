@@ -1,4 +1,4 @@
-﻿namespace WingsOn.Api.Application.Dtos.Resources
+﻿namespace WingsOn.Application.Dto.Resources
 {
     public class FlightResource
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using WingsOn.Api.Application.Dtos.Enums;
+using WingsOn.Application.Dto.Enums;
 
-namespace WingsOn.Api.Application.Dtos.Resources
+namespace WingsOn.Application.Dto.Resources
 {
     public class PassengerResource
     {

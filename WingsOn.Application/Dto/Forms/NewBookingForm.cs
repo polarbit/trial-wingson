@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WingsOn.Api.Application.Dtos.Forms
+namespace WingsOn.Application.Dto.Forms
 {
     public class NewBookingForm
     {
