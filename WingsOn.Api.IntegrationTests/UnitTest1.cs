@@ -41,7 +41,6 @@ namespace WingsOn.Api.IntegrationTests
             {
                 PropertyNameCaseInsensitive = true
             });
-
         }
     }
 }

@@ -10,7 +10,7 @@ namespace WingsOn.Dal.UnitTests
     public class RepositoryBaseTests
     {
         [Fact]
-        public void Test_GetById()
+        public void Test_GetById_ForExistingEntity()
         {
             // Arrange
             var repository = new SampleEntityRepository();
@@ -24,6 +24,19 @@ namespace WingsOn.Dal.UnitTests
             Assert.NotNull(savedEntity);
             Assert.Equal(savedEntity.Id, newEntity.Id);
             Assert.Equal(savedEntity.Name, newEntity.Name);
+        }
+
+        [Fact]
+        public void Test_GetById_ForNotExistingEntity()
+        {
+            // Arrange
+            var repository = new SampleEntityRepository();
+
+            // Act
+            var notExistingEntity = repository.Get(1);
+
+            // Assert
+            Assert.Null(notExistingEntity);
         }
 
         [Fact]
@@ -92,6 +105,20 @@ namespace WingsOn.Dal.UnitTests
             savedEntities.Count().Equals(2);
             Assert.Contains(savedEntities, x => x.Id == newEntity1.Id && x.Name == newEntity1.Name);
             Assert.Contains(savedEntities, x => x.Id == newEntity2.Id && x.Name == newEntity2.Name);
+        }
+
+        [Fact]
+        public void Test_GetAll_ForEmptyRepository()
+        {
+            // Arrange
+            var repository = new SampleEntityRepository();
+
+            //  Act
+            var emptyList = repository.GetAll();
+
+            // Arrange
+            Assert.NotNull(emptyList);
+            Assert.Empty(emptyList);
         }
 
         public class SampleEntity : DomainEntity
