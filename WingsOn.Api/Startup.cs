@@ -14,6 +14,8 @@ using Microsoft.OpenApi.Models;
 using WingsOn.Api.SwaggerHelpers;
 using WingsOn.Application.BaseObjects;
 using WingsOn.Dal.Repositories;
+using WingsOn.Domain.Aggregates.AirlineAggregate;
+using WingsOn.Domain.Aggregates.AirportAggregate;
 using WingsOn.Domain.Aggregates.CustomerAggregate;
 
 namespace WingsOn.Api
@@ -36,7 +38,10 @@ namespace WingsOn.Api
 
             services.AddMediatR(Assembly.GetExecutingAssembly(), typeof(ICommand).Assembly);
 
+            services.AddSingleton<IAirlineRepository, AirlineRepository>();
+            services.AddSingleton<IAirportRepository, AirportRepository>();
             services.AddSingleton<ICustomerRepository, CustomerRepository>();
+            
 
             /*
             services

@@ -17,21 +17,16 @@
 - [ ] Logging
 - [ ] Improve authentication with roles/scopes
 - [ ] Resolve all build warnings.
-- [ ] Extra: Set up Azure DevOps CI/CD
-- [ ] Extra: Deploy to Azure Websites
-- [ ] Extra: Show build status in GitHub
-- [ ] Extra: Show test results in CI/CD
-- [ ] Extra: Show code coverage in CI/CD
-- [ ] Extra: Abstract away MediatR library; introduce custom command/query dispatchers.
 - [ ] Extra: Add SQLLite persistency with Ef Core 
 - [ ] Extra: Separate sample data project (Initial Dal project)
-- [ ] Extra: Create a client library project and publish as nuget package.
-- [ ] Extra: SSO: Either add IdentityServer or custom trivial auth server project with login page.
 
-### To Do - Before Production 
+### To Do - Real Life
+- [ ] Use autofac and autofac modules. Put related dependencies inside its own module.
+- [ ] Abstract away MediatR library; introduce custom command/query dispatchers.
 - [ ] Restrict Cors hosts, if required.
 - [ ] Integrate with IdentityServer; get secretkey from environment variable.
 - [ ] Setup monitoring and healtcheck. (E.g. RunScope, PRTG, NewRelics, Graylog/ELK alerts etc.)
+- [ ] Setup Azure CI/CD. Run unit & integration tests. Run and check code coverage. Deploy to feature based Azure Websites.   
 
 ### Authentication
 
