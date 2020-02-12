@@ -11,6 +11,7 @@
 * Business rules and validations need refinements and improvements, especially w.r.t flight domain rukles. 
   * I only checked some rules and validations for demonstration.
 * I did not write unit or integration tests for Airports and Airlines contexts to save time for other core contexts.
+* For DAL layer, I just tested RepositorBase; which covers most of the scenarios.
 
 ### Authentication
 

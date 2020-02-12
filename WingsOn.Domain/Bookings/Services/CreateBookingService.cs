@@ -25,16 +25,6 @@ namespace WingsOn.Domain.Bookings.Services
 
             // Creation validations.
 
-            if (bookingNumber.Length < 5)
-            {
-                throw new ArgumentException("Booking number length should be greater than 5 characters.", nameof(bookingNumber));
-            }
-
-            if (bookingNumber.Length > 10)
-            {
-                throw new ArgumentException("Booking number length should be less than 10 characters.");
-            }
-
             if (bookingDate >= DateTime.UtcNow)
             {
                 throw  new ArgumentException("Booking date can not be later than now.", nameof(bookingDate));
