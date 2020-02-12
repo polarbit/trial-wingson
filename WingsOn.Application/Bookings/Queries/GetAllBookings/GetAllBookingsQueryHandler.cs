@@ -46,7 +46,8 @@ namespace WingsOn.Application.Bookings.Queries.GetAllBookings
                                 Email = p.Email,
                                 Name = p.Name,
                                 DateBirth = p.DateBirth,
-                                Gender = (Gender)  p.Gender
+                                Gender = (Gender)  p.Gender,
+                                Address = p.Address
                             })
                     });
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WingsOn.Application.Bookings.Resources
 {
@@ -6,6 +7,7 @@ namespace WingsOn.Application.Bookings.Resources
     {
         public int Id { get; set; }
 
+        [Required]
         public string FlightNumber { get; set; }
 
         public int DepartureAirportId { get; set; }

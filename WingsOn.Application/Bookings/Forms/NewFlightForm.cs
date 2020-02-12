@@ -1,9 +1,13 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WingsOn.Application.Bookings.Forms
 {
     public class NewFlightForm
     {
+        [Required]
+        [MinLength(3)]
+        [MaxLength(10)]
         public string FlightNumber { get; set; }
 
         public int DepartureAirportId { get; set; }

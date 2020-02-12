@@ -29,7 +29,7 @@ namespace WingsOn.Api.Controllers
         /// <response code="401">Unauthorized request.</response>
         [HttpGet]
         [ProducesResponseType(typeof(CustomerResource[]), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetPersonById()
+        public async Task<IActionResult> GetAllCustomersId()
         {
             var result = await _mediator.Send(new GetAllCustomersQuery());
 
