@@ -3,11 +3,12 @@ using System.Globalization;
 using System.Linq;
 using WingsOn.Domain.Bookings;
 using WingsOn.Domain.Bookings.Entities;
+using WingsOn.Domain.Bookings.Repositories;
 using WingsOn.Domain.Shared.Enums;
 
 namespace WingsOn.Dal.Repositories
 {
-    public class BookingRepository : RepositoryBase<Booking>
+    public class BookingRepository : RepositoryBase<Booking>, IBookingRepository
     {
         public BookingRepository() 
         {
@@ -29,9 +30,9 @@ namespace WingsOn.Dal.Repositories
                         id:21,
                         number: "BB768",
                         arrivalAirportId:  airports.GetAll().Single(a => a.Code == "ANH").Id,
-                        arrivalDate:  DateTime.Parse("14/11/2006 21:00", cultureInfo),
+                        arrivalDate:  DateTime.Parse("15/11/2006 21:00", cultureInfo),
                         departureAirportId:  airports.GetAll().Single(a => a.Code == "OQO").Id,
-                        departureDate:  DateTime.Parse("15/11/2006 01:30", cultureInfo),
+                        departureDate:  DateTime.Parse("15/11/2006 11:30", cultureInfo),
                         carrierId:  airlines.GetAll().Single(a => a.Code == "BB").Id,
                         price:  416.17m
                     ),
@@ -59,7 +60,7 @@ namespace WingsOn.Dal.Repositories
                         id:31,
                         number: "PZ956",
                         arrivalAirportId:  airports.GetAll().Single(a => a.Code == "ANH").Id,
-                        arrivalDate:  DateTime.Parse("28/05/2008 20:10", cultureInfo),
+                        arrivalDate:  DateTime.Parse("29/05/2008 20:10", cultureInfo),
                         departureAirportId:  airports.GetAll().Single(a => a.Code == "OQO").Id,
                         departureDate:  DateTime.Parse("29/05/2008 13:30", cultureInfo),
                         carrierId:  airlines.GetAll().Single(a => a.Code == "PZ").Id,
@@ -148,7 +149,7 @@ namespace WingsOn.Dal.Repositories
                         departureAirportId :  airports.GetAll().Single(a => a.Code == "OQO").Id,
                         departureDate: DateTime.Parse("12/02/2012 16:50", cultureInfo),
                         arrivalAirportId:  airports.GetAll().Single(a => a.Code == "GJE").Id,
-                        arrivalDate: DateTime.Parse("13/02/2012 00:00", cultureInfo),
+                        arrivalDate: DateTime.Parse("12/02/2012 20:00", cultureInfo),
                         carrierId: airlines.GetAll().Single(a => a.Code == "BB").Id,
                         price: 196.1m
                     ),
@@ -175,6 +176,11 @@ namespace WingsOn.Dal.Repositories
                     }
                 )
             });
+        }
+
+        Booking IBookingRepository.GetById(int id)
+        {
+            return Get(id);
         }
     }
 }

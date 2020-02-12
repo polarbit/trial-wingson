@@ -17,8 +17,4 @@
     <ProjectReference Include="..\WingsOn.Domain\WingsOn.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Bookings\Queries\" />
-  </ItemGroup>
-
 </Project>

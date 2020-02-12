@@ -16,6 +16,7 @@ using WingsOn.Application.BaseObjects;
 using WingsOn.Dal.Repositories;
 using WingsOn.Domain.Airlines;
 using WingsOn.Domain.Airports;
+using WingsOn.Domain.Bookings.Repositories;
 using WingsOn.Domain.Customers;
 
 namespace WingsOn.Api
@@ -41,6 +42,7 @@ namespace WingsOn.Api
             services.AddSingleton<IAirlineRepository, AirlineRepository>();
             services.AddSingleton<IAirportRepository, AirportRepository>();
             services.AddSingleton<ICustomerRepository, CustomerRepository>();
+            services.AddSingleton<IBookingRepository, BookingRepository>();
             
 
             /*

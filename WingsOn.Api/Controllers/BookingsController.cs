@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WingsOn.Application.Bookings.Forms;
+using WingsOn.Application.Bookings.Queries.GetAllBookings;
 using WingsOn.Application.Bookings.Resources;
 
 namespace WingsOn.Api.Controllers
@@ -12,27 +14,26 @@ namespace WingsOn.Api.Controllers
     [ApiController]
     public class BookingsController : ControllerBase
     {
-        /// <summary>
-        /// Returns a specific booking by id.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        /// <response code="200">The booking is found and returned.</response>
-        /// <response code="401">Unauthorized request.</response>
-        /// <response code="404">There is no booking with given id.</response>
-        [HttpGet("{id}")]
-        [ProducesResponseType(typeof(BookingResource), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetBookingById(int id)
-        {
-            var result = new List<BookingResource>
-            {
-                new BookingResource
-                {
-                    Id = id
-                }
-            };
+        private readonly IMediator _mediator;
 
-            return await Task.FromResult(Ok(result));
+        public BookingsController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        /// <summary>
+        /// Returns all bookings
+        /// </summary>
+        /// <returns></returns>
+        /// <response code="200">All bookings are returned.</response>
+        /// <response code="401">Unauthorized request.</response>
+        [HttpGet]
+        [ProducesResponseType(typeof(BookingResource[]), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAllBookings()
+        {
+            var result = await _mediator.Send(new GetAllBookingsQuery());
+
+            return Ok(result);
         }
 
         /// <summary>
