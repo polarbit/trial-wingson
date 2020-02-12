@@ -1,31 +1,41 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WingsOn.Application.Bookings.Resources;
+using WingsOn.Application.PassengerSearch.Queries.SearchPassengersByFlight;
+using WingsOn.Application.PassengerSearch.Queries.SearchPassengersByGender;
 using WingsOn.Application.Shared.Enums;
 
 namespace WingsOn.Api.Controllers
 {
     [Produces("application/json")]
-    [Route("search/[controller]")]
+    [Route("search/passengers")]
     [ApiController]
-    public class PassengersController : ControllerBase
+    public class SearchPassengersController : ControllerBase
     {
+        private readonly IMediator _mediator;
+
+        public SearchPassengersController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         /// <summary>
-        /// Get list of passengers in specified flight.
+        /// Get list of passengers in flights with specified flight number.
         /// </summary>
         /// <param name="flightNumber"></param>
-        /// <param name="departureDay"></param>
         /// <returns></returns>
         /// <response code="200">The query is executed successfully.</response>
         /// <response code="401">Unauthorized request.</response>
-        /// <response code="404">There is no flight with given id.</response>
-        [HttpGet("by-flight/{flightNumber}/{departureDay}")]
+        [HttpGet("by-flight/{flightNumber}")]
         [ProducesResponseType(typeof(PassengerResource), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetPassengersInSpecificFlight(string flightNumber, DateTime departureDay)
+        public async Task<IActionResult> GetPassengersInSpecificFlight(string flightNumber)
         {
-            return Ok();
+            var result = await _mediator.Send(new SearchPassengersByFlightQuery(flightNumber));
+
+            return Ok(result);
         }
 
         /// <summary>
@@ -39,7 +49,9 @@ namespace WingsOn.Api.Controllers
         [ProducesResponseType(typeof(PassengerResource), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetPassengersByGender(Gender gender)
         {
-            return Ok();
+            var result = await _mediator.Send(new SearchPassengersByGenderQuery(gender));
+
+            return Ok(result);
         }
     }
 }

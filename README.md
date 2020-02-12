@@ -29,9 +29,10 @@
 - [x] Unit test and integration test projects
 - [ ] Improve testing (and coverage) in Application Layer.
 - [ ] Improve testing in Api layer.
+- [ ] For the endpoint returning list of items; implement paging and sorting functionality.
 - [ ] ApplicationLayer Validation with Fluent Validation 
 - [ ] Logging with Serilog
-- [ ] Use AutoFixture instead of creasting test objects manually.
+- [x] Use AutoFixture instead of creasting test objects manually. (AutoFixture introdeced, partially done)
 - [ ] Add built-in token service for easy demo and testing; integrate with Swashbuckle.
 - [ ] Put validation logic in Domain layer into specific validator/business-rule objects.
 - [ ] Develop and throw custom specific exception classes rather then builtin framework exceptions.

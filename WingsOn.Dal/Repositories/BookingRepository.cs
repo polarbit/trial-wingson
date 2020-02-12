@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using WingsOn.Application.PassengerSearch.Repositories;
+using WingsOn.Application.Shared.Enums;
 using WingsOn.Domain.Bookings;
 using WingsOn.Domain.Bookings.Entities;
 using WingsOn.Domain.Bookings.Repositories;
 using WingsOn.Domain.Shared.Enums;
+using WingsOn.Domain.Shared.Values;
 
 namespace WingsOn.Dal.Repositories
 {
-    public class BookingRepository : RepositoryBase<Booking>, IBookingRepository
+    public class BookingRepository : RepositoryBase<Booking>, IBookingRepository, IPassengerSearchRepository
     {
         private int _nextFlightId;
         private int _nextPassengerId;
@@ -214,6 +218,18 @@ namespace WingsOn.Dal.Repositories
             {
                 return _nextBookingId++;
             }
+        }
+
+        public IEnumerable<Passenger> GetPassengersByGender(Gender gender)
+        {
+            return Repository.SelectMany(x => x.Passengers).Where(x => x.Gender == (GenderType) gender);
+        }
+
+        public IEnumerable<Passenger> GetPassengerByFlight(FlightNumber flightNumber)
+        {
+            return Repository
+                .Where(x => x.Flight.Number.Equals(flightNumber))
+                .SelectMany(x => x.Passengers);
         }
     }
 }

@@ -13,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using WingsOn.Api.SwaggerHelpers;
 using WingsOn.Application.BaseObjects;
+using WingsOn.Application.PassengerSearch.Repositories;
 using WingsOn.Dal.Repositories;
 using WingsOn.Domain.Airlines;
 using WingsOn.Domain.Airports;
@@ -42,8 +43,9 @@ namespace WingsOn.Api
             services.AddSingleton<IAirlineRepository, AirlineRepository>();
             services.AddSingleton<IAirportRepository, AirportRepository>();
             services.AddSingleton<ICustomerRepository, CustomerRepository>();
-            services.AddSingleton<IBookingRepository, BookingRepository>();
-            
+            services.AddSingleton<BookingRepository, BookingRepository>();
+            services.AddSingleton<IBookingRepository>(provider => provider.GetService<BookingRepository>());
+            services.AddSingleton<IPassengerSearchRepository>(provider => provider.GetService<BookingRepository>());
 
             /*
             services
