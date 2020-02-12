@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WingsOn.Application.Bookings.Commands.CreateBooking;
 using WingsOn.Application.Bookings.Forms;
 using WingsOn.Application.Bookings.Queries.GetAllBookings;
 using WingsOn.Application.Bookings.Resources;
@@ -41,15 +43,38 @@ namespace WingsOn.Api.Controllers
         /// </summary>
         /// <param name="flightId"></param>
         /// <param name="newBookingForm"></param>
-        /// <returns></returns>
+        /// <returns>Returns the created booking resource.</returns>
         /// <response code="200">The booking is created and returned.</response>
         /// <response code="400">Bad request. The new booking form is not valid.</response>
         /// <response code="401">Unauthorized request.</response>
-        /// <response code="404">There is no flight with given id.</response>
         [HttpPost]
-        public async Task<IActionResult> CreateBooking(int flightId, [FromBody]NewBookingForm newBookingForm)
+        [ProducesResponseType(typeof(BookingResource), StatusCodes.Status200OK)]
+        public async Task<IActionResult> CreateBooking([FromBody]NewBookingForm newBookingForm)
         {
-            return Ok();
+            try
+            {
+                var result = await _mediator.Send(new CreateBookingCommand(newBookingForm));
+
+                return Ok(result);
+            }
+            catch (ArgumentException e) when (e.Message.Contains("not found"))
+            {
+                Console.WriteLine(e);
+
+                return BadRequest($"The resource of parameter {e.ParamName} not found. ({e.Message})");
+            }
+            catch (ArgumentNullException e)
+            {
+                return BadRequest($"Missing form parameter: ({e.ParamName})");
+            }
+            catch (ArgumentException e)
+            {
+                return BadRequest($"Invalid form parameter: ({e.ParamName}), Msg ({e.Message})");
+            }
+            catch (InvalidOperationException e)
+            {
+                return StatusCode(500, e.Message);
+            }
         }
     }
 }

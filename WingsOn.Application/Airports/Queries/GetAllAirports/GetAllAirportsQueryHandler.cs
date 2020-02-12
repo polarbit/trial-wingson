@@ -24,6 +24,7 @@ namespace WingsOn.Application.Airports.Queries.GetAllAirports
                 .Select(e =>
                     new AirportResource
                     {
+                        Id = e.Id,
                         Code = e.Code,
                         City = e.City,
                         Country = e.Country

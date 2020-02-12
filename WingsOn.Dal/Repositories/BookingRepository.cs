@@ -10,6 +10,11 @@ namespace WingsOn.Dal.Repositories
 {
     public class BookingRepository : RepositoryBase<Booking>, IBookingRepository
     {
+        private int _nextFlightId;
+        private int _nextPassengerId;
+        private int _nextBookingId;
+        private object _syncObj = new object();
+
         public BookingRepository() 
         {
             CustomerRepository persons = new CustomerRepository();
@@ -176,11 +181,39 @@ namespace WingsOn.Dal.Repositories
                     }
                 )
             });
+
+            _nextBookingId = Repository.Max(x => x.Id) + 1;
+            _nextPassengerId = Repository.SelectMany(x => x.Passengers).Max(x => x.Id) + 1;
+            _nextFlightId = Repository.Select(x => x.Flight).Max(x => x.Id) + 1;
         }
 
         Booking IBookingRepository.GetById(int id)
         {
             return Get(id);
+        }
+
+        public int GetNextFlightId()
+        {
+            lock (_syncObj)
+            {
+                return _nextFlightId++;
+            }
+        }
+
+        public int GetNextPassengerId()
+        {
+            lock (_syncObj)
+            {
+                return _nextPassengerId++;
+            }
+        }
+
+        public int GetNextBookingId()
+        {
+            lock (_syncObj)
+            {
+                return _nextBookingId++;
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AutoFixture;
+using WingsOn.Domain.Airports;
 using WingsOn.Domain.Bookings.Entities;
 using WingsOn.Domain.Shared.Enums;
 using WingsOn.Domain.Shared.Values;

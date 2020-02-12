@@ -24,6 +24,7 @@ namespace WingsOn.Application.Airlines.Queries.GetAllAirlines
                 .Select(e =>
                     new AirlineResource
                     {
+                        Id = e.Id,
                         Code = e.Code,
                         Name = e.Name,
                         Address = e.Address

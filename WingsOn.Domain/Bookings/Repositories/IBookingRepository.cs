@@ -10,5 +10,11 @@ namespace WingsOn.Domain.Bookings.Repositories
         IEnumerable<Booking> GetAll();
 
         void Save(Booking booking);
+
+        int GetNextFlightId();
+
+        int GetNextPassengerId();
+
+        int GetNextBookingId();
     }
 }

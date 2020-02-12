@@ -13,13 +13,13 @@ namespace WingsOn.Domain.Shared.Values
                 throw  new ArgumentNullException();
 
             if (fullName.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length <= 1)
-                throw new ArgumentException("Fullname should contain at least two name parts.");
+                throw new ArgumentException("Fullname should contain at least two name parts.", nameof(fullName));
 
             if (fullName.Any(c => !char.IsWhiteSpace(c) && !char.IsLetter(c)))
-                throw new ArgumentException("Fullname should only contain letters and whitespaces between parts.");
+                throw new ArgumentException("Fullname should only contain letters and whitespaces between parts.", nameof(fullName));
 
             if (fullName.Length > 50)
-                throw new ArgumentException("Fullname length should be less than or equal to 50 characters.");
+                throw new ArgumentException("Fullname length should be less than or equal to 50 characters.", nameof(fullName));
 
             _fullName = fullName;
         }
