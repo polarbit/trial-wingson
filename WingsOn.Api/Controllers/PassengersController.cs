@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WingsOn.Application.Bookings.Resources;
-using WingsOn.Application.Enums;
+using WingsOn.Application.Shared.Enums;
 
 namespace WingsOn.Api.Controllers
 {

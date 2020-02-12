@@ -1,4 +1,4 @@
-﻿namespace WingsOn.Application.Enums
+﻿namespace WingsOn.Application.Shared.Enums
 {
     public enum Gender
     {

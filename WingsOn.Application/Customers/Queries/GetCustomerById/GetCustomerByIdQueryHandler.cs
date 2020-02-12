@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using WingsOn.Application.BaseObjects;
 using WingsOn.Application.Customers.Resources;
-using WingsOn.Application.Enums;
+using WingsOn.Application.Shared.Enums;
 using WingsOn.Domain.Customers;
 
 namespace WingsOn.Application.Customers.Queries.GetCustomerById
@@ -23,6 +23,8 @@ namespace WingsOn.Application.Customers.Queries.GetCustomerById
             if(request == null) throw new ArgumentNullException(nameof(request));
 
             var customerEntity = _customerRepository.GetById(request.Id);
+
+            if (customerEntity == null) return Task.FromResult((CustomerResource) null);
 
             return Task.FromResult(new CustomerResource
             {

@@ -1,5 +1,5 @@
 ﻿using System;
-using WingsOn.Application.Enums;
+using WingsOn.Application.Shared.Enums;
 
 namespace WingsOn.Application.Bookings.Resources
 {

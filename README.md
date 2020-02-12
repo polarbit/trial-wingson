@@ -26,9 +26,10 @@
 - [x] Unit test and integration test projects
 - [ ] ApplicationLayer Validation with Fluent Validation 
 - [ ] Logging with Serilog
-- [ ] Develop and throw custom specific exception classes rather then builtin framework exceptions.
 - [ ] Use AutoFixture instead of creasting test objects manually.
+- [ ] Add built-in token service for easy demo and testing; integrate with Swashbuckle.
 - [ ] Put validation logic in Domain layer into specific validator/business-rule objects.
+- [ ] Develop and throw custom specific exception classes rather then builtin framework exceptions.
 - [ ] Improve authentication with roles/scopes
 - [ ] Resolve all build warnings.
 - [ ] Extra: Add SQLLite persistency with Ef Core 

@@ -9,7 +9,7 @@ namespace WingsOn.Application.Bookings.Forms
 
         public int CustomerId { get; set; }
 
-        public int FlightId { get; set; }
+        public NewFlightForm Flight { get; set; }
 
         public DateTime DateBooking { get; set; }
 

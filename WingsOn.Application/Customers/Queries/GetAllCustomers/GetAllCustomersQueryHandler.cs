@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using WingsOn.Application.BaseObjects;
 using WingsOn.Application.Customers.Resources;
-using WingsOn.Application.Enums;
+using WingsOn.Application.Shared.Enums;
 using WingsOn.Domain.Customers;
 
 namespace WingsOn.Application.Customers.Queries.GetAllCustomers

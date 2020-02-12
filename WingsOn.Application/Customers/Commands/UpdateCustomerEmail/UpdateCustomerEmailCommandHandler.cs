@@ -21,6 +21,12 @@ namespace WingsOn.Application.Customers.Commands.UpdateCustomerEmail
             if(request == null) throw new ArgumentNullException(nameof(request));
 
             var customerEntity = _customerRepository.GetById(request.CustomerId);
+
+            if (customerEntity == null)
+            {
+                throw new ApplicationException("Customer not found.");
+            }
+
             customerEntity.UpdateEmail(request.Email);
 
             _customerRepository.Save(customerEntity);
