@@ -1,6 +1,7 @@
 ﻿using System;
 using WingsOn.Domain.BaseObjects;
 using WingsOn.Domain.Enums;
+using WingsOn.Domain.ValueObjects;
 
 namespace WingsOn.Domain.Bookings
 {
@@ -8,27 +9,27 @@ namespace WingsOn.Domain.Bookings
     {
         public Passenger(
             int id,
-            string name,
-            DateTime dateBirth,
+            FullName name,
+            DateOfBirth dateBirth,
             GenderType gender,
-            string address,
-            string email) : base(id)
+            Address address,
+            Email email) : base(id)
         {
-            Name = name;
-            DateBirth = dateBirth;
+            Name = name ?? throw new ArgumentNullException(nameof(name), "Name can not be null.");
+            DateBirth = dateBirth ?? throw new ArgumentNullException(nameof(dateBirth), "DateOfBirth can not be null.");
             Gender = gender;
-            Address = address;
-            Email = email;
+            Address = address ?? throw new ArgumentNullException(nameof(address), "Address can not be null.");
+            Email = email ?? throw new ArgumentNullException(nameof(email), "Email can not be null.");
         }
 
-        public string Name { get; }
+        public FullName Name { get; }
 
-        public DateTime DateBirth { get; }
+        public DateOfBirth DateBirth { get; }
 
         public GenderType Gender { get; }
 
-        public string Address { get; }
+        public Address Address { get; }
 
-        public string Email { get; }
+        public Email Email { get; }
     }
 }

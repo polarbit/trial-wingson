@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using WingsOn.Domain.Customers;
 using WingsOn.Domain.Enums;
 
@@ -55,6 +56,11 @@ namespace WingsOn.Dal.Repositories
         Customer ICustomerRepository.GetById(int id)
         {
             return Get(id);
+        }
+
+        public Customer GetByEmail(string email)
+        {
+            return Repository.FirstOrDefault(x => x.Email == email);
         }
     }
 }

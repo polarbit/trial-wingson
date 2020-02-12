@@ -8,6 +8,8 @@ namespace WingsOn.Domain.Customers
 
         Customer GetById(int id);
 
+        Customer GetByEmail(string email);
+
         void Save(Customer person);
     }
 }
