@@ -1,4 +1,6 @@
-﻿namespace WingsOn.Domain.Bookings
+﻿using WingsOn.Domain.Bookings.Entities;
+
+namespace WingsOn.Domain.Bookings.Repositories
 {
     public interface IBookingRepository
     {

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace WingsOn.Domain.ValueObjects
+namespace WingsOn.Domain.Shared.Values
 {
     public class DateOfBirth
     {

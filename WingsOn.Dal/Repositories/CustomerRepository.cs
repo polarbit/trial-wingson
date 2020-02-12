@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using WingsOn.Domain.Customers;
-using WingsOn.Domain.Enums;
+using WingsOn.Domain.Shared.Enums;
 
 namespace WingsOn.Dal.Repositories
 {

@@ -2,7 +2,8 @@
 using System.Globalization;
 using System.Linq;
 using WingsOn.Domain.Bookings;
-using WingsOn.Domain.Enums;
+using WingsOn.Domain.Bookings.Entities;
+using WingsOn.Domain.Shared.Enums;
 
 namespace WingsOn.Dal.Repositories
 {

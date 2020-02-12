@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using WingsOn.Domain.ValueObjects;
+using WingsOn.Domain.Shared.Values;
 using Xunit;
 
-namespace WingsOn.Domain.UnitTests.ValueObjects
+namespace WingsOn.Domain.UnitTests.Shared.Values
 {
     public class AddressTests
     {

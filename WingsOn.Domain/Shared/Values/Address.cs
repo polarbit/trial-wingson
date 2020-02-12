@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace WingsOn.Domain.ValueObjects
+namespace WingsOn.Domain.Shared.Values
 {
     public class Address
     {

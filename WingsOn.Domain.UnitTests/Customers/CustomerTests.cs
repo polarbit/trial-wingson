@@ -1,7 +1,7 @@
 using System;
 using WingsOn.Domain.Customers;
-using WingsOn.Domain.Enums;
-using WingsOn.Domain.ValueObjects;
+using WingsOn.Domain.Shared.Enums;
+using WingsOn.Domain.Shared.Values;
 using Xunit;
 
 namespace WingsOn.Domain.UnitTests.Customers
@@ -25,6 +25,7 @@ namespace WingsOn.Domain.UnitTests.Customers
             Assert.Equal(args.Email, customer.Email);
             Assert.Equal(args.Address, customer.Address);
             Assert.Equal(args.Gender, customer.Gender);
+            Assert.Equal(args.DateBirth, customer.DateBirth);
         }
 
         [Fact]

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using WingsOn.Domain.BaseObjects;
 
-namespace WingsOn.Domain.Bookings
+namespace WingsOn.Domain.Bookings.Entities
 {
     public class Booking : DomainEntity
     {
@@ -13,11 +14,16 @@ namespace WingsOn.Domain.Bookings
             IEnumerable<Passenger> passengers, 
             DateTime dateBooking) : base(id)
         {
-            Number = number;
-            Flight = flight;
+            Number = !string.IsNullOrWhiteSpace(number) ? number : throw new ArgumentNullException(nameof(number));
+            Flight = flight ?? throw new ArgumentNullException(nameof(flight));
             CustomerId = customerId;
-            Passengers = passengers;
+            Passengers = passengers ?? throw  new ArgumentNullException(nameof(passengers));
             DateBooking = dateBooking;
+
+            if (!passengers.Any())
+            {
+                throw new ArgumentException("At least one passenger is required to create a booking.", nameof(passengers));
+            }
         }
 
         public string Number { get; }

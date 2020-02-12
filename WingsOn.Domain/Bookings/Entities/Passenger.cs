@@ -1,9 +1,9 @@
 ﻿using System;
 using WingsOn.Domain.BaseObjects;
-using WingsOn.Domain.Enums;
-using WingsOn.Domain.ValueObjects;
+using WingsOn.Domain.Shared.Enums;
+using WingsOn.Domain.Shared.Values;
 
-namespace WingsOn.Domain.Bookings
+namespace WingsOn.Domain.Bookings.Entities
 {
     public class Passenger : DomainEntity
     {
