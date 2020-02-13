@@ -1,5 +1,19 @@
 # WingsOn Trial Project
 
+### Authentication & Testing
+
+* For testing and demo purposes, you should create a token using <https://jwt.io> with your secret.
+  * Or probably you use the default secret `***SUPER SECRET KEY***` and default issuer `https://wingson.local`.
+* Subject(sub), Issuer(iss) and Expiration(exp) fields are required in the jwt token.
+* In Swagger, click `Authorize` button; and enter the Jwt token you retrieved from jwt.io.
+* You can not use the api without a jwt token.
+
+Sample Request:
+```
+curl -X GET "https://localhost:32774/airports" -H "accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJpc3MiOiJodHRwczovL3dpbmdzb24ubG9jYWwiLCJleHAiOjE2MTYyMzkwMjJ9.rdq-otl43R3D3Z9bDnRMpySeLqdyTZsGaq1bYUxxPG4"
+```
+
+
 ### My Implementation Notes
 * DAL layer is just a fake implementation, as before. (If I find time; I may replace it with at least EF Core+ SQLLite pair.)
 * I converted Flight aggregate to an entity inside Booking entity. 
@@ -13,46 +27,6 @@
 * I did not write unit or integration tests for Airports and Airlines contexts to save time for other core contexts.
 * For DAL layer, I just tested RepositorBase; which covers most of the scenarios.
 * I could not properly start developing integration testing for Api layer.
-
-
-### Authentication
-
-* For testing and demo purposes, you can create a token using <https://jwt.io> with your secret.
-  * Or use the default secret `***SUPER SECRET KEY***` and default issuer `https://wingson.local`.
-* Subject(sub), Issuer(iss) and Expiration(exp) fields are required in the jwt token.
-
-
-### To Do
-
-- [x] Default Jwt Authentication + Cors
-- [x] Swashbuckle
-- [x] Unit test and integration test projects
-- [ ] Improve testing (and coverage) in Application Layer.
-- [ ] Improve testing in Api layer.
-- [ ] For the endpoint returning list of items; implement paging and sorting functionality.
-- [ ] ApplicationLayer Validation with Fluent Validation 
-- [ ] Logging with Serilog
-- [x] Use AutoFixture instead of creasting test objects manually. (AutoFixture introdeced, partially done)
-- [ ] Add built-in token service for easy demo and testing; integrate with Swashbuckle.
-- [ ] Put validation logic in Domain layer into specific validator/business-rule objects.
-- [ ] Develop and throw custom specific exception classes rather then builtin framework exceptions.
-- [ ] Improve authentication with roles/scopes
-- [ ] Resolve all build warnings.
-- [ ] Extra: Add SQLLite persistency with Ef Core 
-- [ ] Extra: Separate sample data project (Initial Dal project)
-- [ ] Extra : Use autofac and autofac modules. Put related dependencies inside its own module.
-- [ ] Extra : Abstract away MediatR library; introduce custom command/query dispatchers.
-- [ ] Prod : Restrict Cors hosts, if required.
-- [ ] Prod : Integrate with IdentityServer or an Idp; get secretkey from environment variable.
-- [ ] Prod : Setup monitoring and healtcheck. (E.g. RunScope, PRTG, NewRelics, Graylog/ELK alerts etc.)
-- [ ] Prod : Setup Azure CI/CD. Run unit & integration tests. Run and check code coverage. Deploy to feature based Azure Websites.
-- [ ] Prod : Integrate with SonarQube (or similar); add related steps into the CI/CD pipeline.
-
-
-### Authentication
-
-* For testing and demo purposes, you can create a token using <https://jwt.io> with your secret. (Or with the default secret)
-* Subject(sub), Issuer(iss) and Expiration(exp) fields are required in the jwt token.
 
 
 ### Example Create Booking Payload
@@ -81,4 +55,32 @@
   ]
 }
 ```
+
+
+### To Do
+
+- [x] Default Jwt Authentication + Cors
+- [x] Swashbuckle
+- [x] Unit test and integration test projects
+- [ ] Improve testing (and coverage) in Application Layer.
+- [ ] Improve testing in Api layer.
+- [ ] For the endpoint returning list of items; implement paging and sorting functionality.
+- [ ] ApplicationLayer Validation with Fluent Validation 
+- [ ] Logging with Serilog
+- [x] Use AutoFixture instead of creasting test objects manually. (AutoFixture introdeced, partially done)
+- [x] Enable authorization feature in Swashbuckle.
+- [ ] Put validation logic in Domain layer into specific validator/business-rule objects.
+- [ ] Develop and throw custom specific exception classes rather then builtin framework exceptions.
+- [ ] Improve authentication with roles/scopes
+- [ ] Resolve all build warnings.
+- [ ] Extra: Add SQLLite persistency with Ef Core 
+- [ ] Extra: Separate sample data project (Initial Dal project)
+- [ ] Extra : Use autofac and autofac modules. Put related dependencies inside its own module.
+- [ ] Extra : Abstract away MediatR library; introduce custom command/query dispatchers.
+- [ ] Prod : Restrict Cors hosts, if required.
+- [ ] Prod : Integrate with IdentityServer or an Idp; get secretkey from environment variable.
+- [ ] Prod : Setup monitoring and healtcheck. (E.g. RunScope, PRTG, NewRelics, Graylog/ELK alerts etc.)
+- [ ] Prod : Setup Azure CI/CD. Run unit & integration tests. Run and check code coverage. Deploy to feature based Azure Websites.
+- [ ] Prod : Integrate with SonarQube (or similar); add related steps into the CI/CD pipeline.
+
 
